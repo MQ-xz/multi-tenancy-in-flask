@@ -7,3 +7,6 @@ psycopg2==2.9.9
 
 # migrations
 Flask-Migrate==4.0.5
+
+# marshmallow
+marshmallow-sqlalchemy==0.30.0
