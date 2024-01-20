@@ -6,3 +6,5 @@
 SQLALCHEMY_DATABASE_URI = (
     "postgresql://postgres:postgres@localhost:5432/postgres"
 )
+
+JWT_SECRET_KEY = "super-secret"  # change this

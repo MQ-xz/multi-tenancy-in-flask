@@ -3,8 +3,8 @@
 
 from flask import Flask
 
-from src.api.views import api
-from src.extensions import db, migrate
+from api.views import api
+from extensions import db, migrate, jwt
 
 
 def create_app():
@@ -27,6 +27,7 @@ def extensions(_app):
     """Register extensions"""
     db.init_app(_app)
     migrate.init_app(_app, db)
+    jwt.init_app(_app)
 
 
 app = create_app()

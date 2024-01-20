@@ -1,6 +1,6 @@
 """Public model serializers"""
+# pylint: disable=too-few-public-methods
 from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
-
 
 from src.models.public import User, Shop, UserShop
 

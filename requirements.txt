@@ -10,3 +10,6 @@ Flask-Migrate==4.0.5
 
 # marshmallow
 marshmallow-sqlalchemy==0.30.0
+
+# jwt
+flask-jwt-extended==4.6.0

@@ -1,4 +1,5 @@
 """Public models"""
+# pylint: disable=too-few-public-methods
 from sqlalchemy import Column, String, Integer, ForeignKey
 
 from src.extensions import db
