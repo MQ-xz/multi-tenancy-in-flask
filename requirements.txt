@@ -1,2 +1,9 @@
 # flask
 Flask==3.0.1
+
+# sqlalchemy
+Flask-SQLAlchemy==3.1.1
+psycopg2==2.9.9
+
+# migrations
+Flask-Migrate==4.0.5
