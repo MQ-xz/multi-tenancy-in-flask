@@ -1,0 +1,4 @@
+[tool.black]
+line-length = 79
+[tool.pylint]
+disable="cyclic-import, fixme"
