@@ -8,7 +8,7 @@ from flask_jwt_extended import create_access_token, create_refresh_token
 from src.extensions import db
 from src.models.public import User
 from src.serializers.public import UserSchema
-from . import api
+from . import api_bp
 
 
 class RegisterAPI(MethodView):
@@ -47,5 +47,7 @@ class LoginAPI(MethodView):
 
 
 # add url rule
-api.add_url_rule("/auth/register", view_func=RegisterAPI.as_view("register"))
-api.add_url_rule("/auth/login", view_func=LoginAPI.as_view("login"))
+api_bp.add_url_rule(
+    "/auth/register", view_func=RegisterAPI.as_view("register")
+)
+api_bp.add_url_rule("/auth/login", view_func=LoginAPI.as_view("login"))

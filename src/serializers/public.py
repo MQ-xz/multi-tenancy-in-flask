@@ -33,3 +33,4 @@ class UserShopSchema(SQLAlchemyAutoSchema):
 
         model = UserShop
         load_instance = True
+        include_fk = True

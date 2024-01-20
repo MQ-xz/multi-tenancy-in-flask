@@ -1,7 +1,7 @@
 """Views"""
 from flask import jsonify
 
-from . import api
+from . import api_bp
 
 
 def index():
@@ -9,4 +9,4 @@ def index():
     return jsonify({"message": "Hello, World!"})
 
 
-api.add_url_rule("/", view_func=index)
+api_bp.add_url_rule("/", view_func=index)
