@@ -9,6 +9,7 @@ class User(db.Model):
     """User model"""
 
     __bind_key__ = "public"
+    __table_args__ = {"schema": "public"}
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     email = Column(String(50), nullable=False)
@@ -20,6 +21,7 @@ class Shop(db.Model):
     """Shop model"""
 
     __bind_key__ = "public"
+    __table_args__ = {"schema": "public"}
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(50), nullable=False)
@@ -30,6 +32,7 @@ class UserShop(db.Model):
     """UserShop model"""
 
     __bind_key__ = "public"
+    __table_args__ = {"schema": "public"}
 
     user_id = Column(ForeignKey(User.id), primary_key=True)
     shop_id = Column(ForeignKey(Shop.id), primary_key=True)
