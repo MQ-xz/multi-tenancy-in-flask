@@ -53,6 +53,8 @@ target_db = current_app.extensions["migrate"].db
 
 # list of tenants
 tenants = [tenant.id for tenant in Shop.query.all()]
+# for initial migration we just use test schema
+tenants = ["test"]
 
 
 def get_metadata():
