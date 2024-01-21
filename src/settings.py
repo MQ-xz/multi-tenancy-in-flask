@@ -6,5 +6,6 @@
 SQLALCHEMY_DATABASE_URI = (
     "postgresql://postgres:postgres@localhost:5432/postgres"
 )
+SQLALCHEMY_BINDS = {"public": SQLALCHEMY_DATABASE_URI}
 
 JWT_SECRET_KEY = "super-secret"  # change this
