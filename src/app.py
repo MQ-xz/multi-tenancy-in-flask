@@ -3,7 +3,7 @@
 
 from flask import Flask
 
-from .api import public_bp
+from .api import public_bp, tenant_bp
 from .extensions import db, migrate, jwt
 
 
@@ -16,6 +16,7 @@ def create_app():
 
     # register blueprints
     _app.register_blueprint(public_bp)
+    _app.register_blueprint(tenant_bp)
 
     # register extensions
     extensions(_app)

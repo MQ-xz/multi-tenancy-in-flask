@@ -46,11 +46,12 @@ class LoginAPI(MethodView):
                 ).first_or_404("shop not found")
                 access_token = create_access_token(
                     identity=user.id,
-                    additional_claims={"shop": user_shop.shop_id},
+                    # shop specific claims for shop specific login and access
+                    additional_claims={"tenant": user_shop.shop_id},
                 )
                 refresh_token = create_refresh_token(
                     identity=user.id,
-                    additional_claims={"shop": user_shop.shop_id},
+                    additional_claims={"tenant": user_shop.shop_id},
                 )
             else:
                 # Global login

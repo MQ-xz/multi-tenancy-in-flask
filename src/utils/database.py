@@ -45,7 +45,7 @@ class Database:
 
     def switch_schema(self):
         """switch between tenant/public database schema"""
-        db.session.execute(f'set search_path to "{self.schema}"')
+        db.session.execute(text(f'set search_path to "{self.schema}"'))
         db.session.commit()
 
     def migrate_tenant_schema(self):

@@ -2,7 +2,7 @@
 
 from flask import request
 from flask.views import MethodView
-
+from marshmallow import ValidationError
 
 from src.extensions import db
 from src.models.tenant import Product
@@ -20,7 +20,12 @@ class ProductsAPI(MethodView):
 
     def post(self):
         """Create a new product"""
-        product = ProductSchema().load(request.json)
+        try:
+            product = ProductSchema().load(
+                request.get_json(), session=db.session
+            )
+        except ValidationError as err:
+            return err.messages, 400
         db.session.add(product)
         db.session.commit()
         return ProductSchema().dump(product), 201
@@ -50,8 +55,8 @@ class ProductAPI(MethodView):
 
 
 tenant_bp.add_url_rule(
-    "/products/", view_func=ProductsAPI.as_view("products_api")
+    "/products", view_func=ProductsAPI.as_view("products_api")
 )
 tenant_bp.add_url_rule(
-    "/products/<int:product_id>/", view_func=ProductAPI.as_view("product_api")
+    "/products/<int:product_id>", view_func=ProductAPI.as_view("product_api")
 )
