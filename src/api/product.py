@@ -42,7 +42,9 @@ class ProductAPI(MethodView):
     def put(self, product_id):
         """Update a product"""
         product = Product.query.get_or_404(product_id)
-        product = ProductSchema().load(request.json, instance=product)
+        product = ProductSchema().load(
+            request.json, instance=product, session=db.session
+        )
         db.session.commit()
         return ProductSchema().dump(product)
 
