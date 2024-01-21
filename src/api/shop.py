@@ -7,7 +7,7 @@ from flask_jwt_extended import jwt_required, get_jwt_identity
 
 from src.serializers.public import ShopSchema, UserShopSchema
 from src.extensions import db
-from . import api_bp
+from . import public_bp
 
 
 class ShopsAPI(MethodView):
@@ -32,4 +32,4 @@ class ShopsAPI(MethodView):
             return err.messages, 400
 
 
-api_bp.add_url_rule("/shops", view_func=ShopsAPI.as_view("shops"))
+public_bp.add_url_rule("/shops", view_func=ShopsAPI.as_view("shops"))

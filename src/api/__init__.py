@@ -2,6 +2,11 @@
 
 from flask import Blueprint
 
-api_bp = Blueprint("api", __name__, url_prefix="/api/v1")
+public_bp = Blueprint("public", __name__, url_prefix="/api/v1/")
+# pylint: disable=wrong-import-position
+from . import (
+    views,
+    auth,
+    shop,
 
-from . import views, auth, shop  # pylint: disable=wrong-import-position
+)

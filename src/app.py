@@ -3,7 +3,7 @@
 
 from flask import Flask
 
-from .api import api_bp
+from .api import public_bp
 from .extensions import db, migrate, jwt
 
 
@@ -15,7 +15,7 @@ def create_app():
     _app.config.from_object("src.settings")
 
     # register blueprints
-    _app.register_blueprint(api_bp)
+    _app.register_blueprint(public_bp)
 
     # register extensions
     extensions(_app)
