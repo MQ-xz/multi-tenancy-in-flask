@@ -7,6 +7,7 @@ from flask_jwt_extended import jwt_required, get_jwt_identity
 
 from src.serializers.public import ShopSchema, UserShopSchema
 from src.extensions import db
+from src.utils.database import Database
 from . import public_bp
 
 
@@ -27,6 +28,8 @@ class ShopsAPI(MethodView):
             )
             db.session.add(user_shop)
             db.session.commit()
+            # create new schema for tenant
+            Database(shop.id).create_tenant_schema()
             return {"message": "success"}, 201
         except ValidationError as err:
             return err.messages, 400
