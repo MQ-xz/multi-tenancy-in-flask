@@ -13,8 +13,3 @@ In this blog, I share my journey overcoming challenges in developing a multi-ten
 - How to dynamically create a new schema in the database for each new tenant during the registration process?
 - How to implement middleware for seamless switching between public and tenant schemas based on incoming requests?
 - Why choose schemas over databases for each tenant, and what performance improvements are observed?
-
-Check it out here: [Link]
-
-Happy reading!
-[Your Name]
